@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+
+class MainClass {
+  public static void Main (string[] args) 
+  {
+    Random rand = new Random();
+    List<int> list = new List<int>();
+    int i, j, N, m, b, k;
+    m = 0;
+    b = 0;
+    k = 0;
+    Console.Write("Введите число N: ");
+    N = int.Parse(Console.ReadLine());
+    for(i=1; i<=N; i++)
+    {
+      Console.Write("a[");
+      Console.Write(i);
+      Console.Write("] = ");
+      b = int.Parse(Console.ReadLine());
+      list.Add(b);
+    }
+    Console.WriteLine();
+    Console.WriteLine();
+    list.Sort();
+    for (i = 0; i < N-3; i++)
+    {
+      if (list[i] == list[i + 1])
+     {
+        list.RemoveAt(i);
+        list.RemoveAt(i);
+      }
+    }
+    Console.WriteLine("ВЫВОД:");
+    for (i = 0; i < list.count; i++)
+    {
+      Console.WriteLine(list[i]);
+    }
+    Console.ReadKey();
+  }
+}
