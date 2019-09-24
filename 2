@@ -4,10 +4,9 @@ using System.Collections.Generic;
 class MainClass {
   public static void Main (string[] args) 
   {
-    Random rand = new Random();
-    List<int> list = new List<int>();
+    List<int> a = new List<int>();
     int i, j, N, m, b, k;
-    m = 0;
+    m = 1;
     b = 0;
     k = 0;
     Console.Write("Введите число N: ");
@@ -18,23 +17,36 @@ class MainClass {
       Console.Write(i);
       Console.Write("] = ");
       b = int.Parse(Console.ReadLine());
-      list.Add(b);
+      a.Add(b);
     }
     Console.WriteLine();
     Console.WriteLine();
-    list.Sort();
-    for (i = 0; i < N-3; i++)
+    for (i = 0; i < a.Count - 1; i++)
     {
-      if (list[i] == list[i + 1])
-     {
-        list.RemoveAt(i);
-        list.RemoveAt(i);
+      for (j = i; j < a.Count; j++)
+      {
+         if (a[i] == a[i + 1])
+         {
+           b = i;
+           k = j;
+           m = m + 1;
+         }
+      }
+      if (m == 2)
+      {
+        a.RemoveAt(b);
+        a.RemoveAt(k);
+        m = 1;
       }
     }
     Console.WriteLine("ВЫВОД:");
-    for (i = 0; i < list.count; i++)
+    for (i = 1; i <= a.Count; i++)
     {
-      Console.WriteLine(list[i]);
+      Console.Write("a[");
+      Console.Write(i);
+      Console.Write("] = ");
+      Console.Write(a[i]);
+      Console.Write(", ");
     }
     Console.ReadKey();
   }
