@@ -35,10 +35,16 @@ namespace SoloLearn
             {
               if(i==N)
               {
+                Console.Write("a[");
+                Console.Write(i);
+                Console.Write("] = ");
                 Console.Write(a[i]);
               }
               else
               {
+                Console.Write("a[");
+                Console.Write(i);
+                Console.Write("] = ");
                 Console.Write(a[i]);
                 Console.Write(", ");
               }
@@ -66,6 +72,7 @@ namespace SoloLearn
                }
                k = 1;
             }
+            k = 0;
             Console.WriteLine("Конечный массив: ");
             for (i = 1; i <= N; i++)
             {
@@ -77,12 +84,20 @@ namespace SoloLearn
                 {
                     if (i == N)
                     {
-                        Console.WriteLine(a[i]);
+                      k = k + 1;
+                      Console.Write("a[");
+                      Console.Write(k);
+                      Console.Write("] = ");
+                      Console.WriteLine(a[i]);
                     }
                     else
                     {
-                        Console.Write(a[i]);
-                        Console.Write(", ");
+                      k = k + 1;
+                      Console.Write("a[");
+                      Console.Write(k);
+                      Console.Write("] = ");
+                      Console.Write(a[i]);
+                      Console.Write(", ");
                     }
                 }
             }
