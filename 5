@@ -1,0 +1,78 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] a = new int[10000];
+            int i, N, k, m;
+            k = 0;
+            m = 0;
+            Console.Write("Введите размер массива: ");
+            N = int.Parse(Console.ReadLine());
+            for (i = 1; i <= N; i++)
+            {
+                Console.Write("a[");
+                Console.Write(i);
+                Console.Write("] = ");
+                a[i] = int.Parse(Console.ReadLine());
+            }
+            Console.WriteLine();
+            Console.WriteLine("Исходный массив: ");
+            for (i=1; i<=N; i++)
+            {
+              Console.Write("a[");
+              Console.Write(i);
+              Console.Write("] = ");
+              Console.Write(a[i]);
+              if (i!=N)
+              {
+                Console.Write(", ");
+              }
+            }
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("Конечный массив: ");
+            for (i = 1; i <= N; i++)
+            {
+                if (a[i] > 0)
+                {
+                    k = k + 1;
+                    Console.Write("a[");
+                    Console.Write(k);
+                    Console.Write("] = ");
+                    Console.Write("0, ");
+                    Console.Write("a[");
+                    Console.Write(k+1);
+                    Console.Write("] = ");
+                    Console.Write(a[i]);
+                    k = k + 1;
+                    m = m + 1;
+                }
+                else
+                {
+                    k = k + 1;
+                    Console.Write("a[");
+                    Console.Write(k);
+                    Console.Write("] = ");
+                    Console.Write(a[i]);
+                }
+                if (k!=N+m)
+                {
+                  Console.Write(", ");
+                }
+                else
+                {
+                  Console.WriteLine();
+                }
+            }
+            Console.ReadKey();
+        }
+    }
+}
