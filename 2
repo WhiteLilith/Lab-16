@@ -1,53 +1,92 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-class MainClass {
-  public static void Main (string[] args) 
-  {
-    List<int> a = new List<int>();
-    int i, j, N, m, b, k;
-    m = 1;
-    b = 0;
-    k = 0;
-    Console.Write("Введите число N: ");
-    N = int.Parse(Console.ReadLine());
-    for(i=1; i<=N; i++)
+namespace SoloLearn
+{
+    class Program
     {
-      Console.Write("a[");
-      Console.Write(i);
-      Console.Write("] = ");
-      b = int.Parse(Console.ReadLine());
-      a.Add(b);
+        static void Main(string[] args)
+        {
+            int[] a = new int[10000];
+            int[] b = new int[10000];
+            int i, j, m, n, k, N;
+            Console.Write("Введите размер массива: ");
+            N = int.Parse(Console.ReadLine());
+            k = 1;
+            m = -123456;
+            n = 0;
+            for (i = 1; i <= N; i++)
+            {
+                Console.Write("a[");
+                Console.Write(i);
+                Console.Write("] = ");
+                a[i] = 0;
+                a[i] = int.Parse(Console.ReadLine());
+                b[i] = m;
+            }
+            Console.WriteLine();
+            b[1]=a[1];
+            b[N]=a[N];
+            Console.WriteLine("Исходный массив: ");
+            for (i = 1; i <= N; i++)
+            {
+              if(i==N)
+              {
+                Console.Write(a[i]);
+              }
+              else
+              {
+                Console.Write(a[i]);
+                Console.Write(", ");
+              }
+            }
+            Console.WriteLine();
+            Console.WriteLine();
+            for (i = 1; i <= N - 1; i++)
+            {   
+              for (j = i + 1; j <= N; j++)
+              {
+                if (a[i] == a[j] && a[i]!=b[j] && a[j]!=b[j])
+                {
+                  k = k + 1;
+                  n = j;
+                  if(k>2)
+                  {
+                    b[j]=b[i];
+                  }
+                 }
+               }
+               if (k == 2)
+               {
+                 a[i] = m;
+                 a[n] = m;
+               }
+               k = 1;
+            }
+            Console.WriteLine("Конечный массив: ");
+            for (i = 1; i <= N; i++)
+            {
+                if (a[i] == m)
+                {
+                    Console.Write("");
+                }
+                else
+                {
+                    if (i == N)
+                    {
+                        Console.WriteLine(a[i]);
+                    }
+                    else
+                    {
+                        Console.Write(a[i]);
+                        Console.Write(", ");
+                    }
+                }
+            }
+            Console.ReadKey();
+        }
     }
-    Console.WriteLine();
-    Console.WriteLine();
-    for (i = 0; i < a.Count - 1; i++)
-    {
-      for (j = i; j < a.Count; j++)
-      {
-         if (a[i] == a[i + 1])
-         {
-           b = i;
-           k = j;
-           m = m + 1;
-         }
-      }
-      if (m == 2)
-      {
-        a.RemoveAt(b);
-        a.RemoveAt(k);
-        m = 1;
-      }
-    }
-    Console.WriteLine("ВЫВОД:");
-    for (i = 1; i <= a.Count; i++)
-    {
-      Console.Write("a[");
-      Console.Write(i);
-      Console.Write("] = ");
-      Console.Write(a[i]);
-      Console.Write(", ");
-    }
-    Console.ReadKey();
-  }
 }
