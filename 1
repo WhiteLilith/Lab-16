@@ -4,7 +4,9 @@ class MainClass {
   public static void Main (string[] args) 
   {
     int[] a = new int[10000];
-    int i, N;
+    int i, N, k, m;
+    k = 0;
+    m = -8734134;
     Console.Write("Введите число N: ");
     N = int.Parse(Console.ReadLine());
     for(i=1; i<=N; i++)
@@ -20,18 +22,32 @@ class MainClass {
     {
       if(a[i]==a[i+1])
       {
-        a[i]=i;
-        a[i+1]=i+1;
+        a[i]=m;
       }
     }
     Console.WriteLine("Конечный массив, в котором удалены все соседние одинаковые элементы с оставлением их первых вхождений: ");
     for(i=1; i<=N; i++)
     {
+      if (a[i]!=m && i!=N)
+      {
+        k = k + 1;
       Console.Write("a[");
-      Console.Write(i);
+      Console.Write(k);
       Console.Write("] = ");
       Console.Write(a[i]);
       Console.Write(", ");
+      }
+      else
+      {
+        if (a[i]!=m && i==N)
+        {
+          k = k + 1;
+          Console.Write("a[");
+          Console.Write(k);
+          Console.Write("] = ");
+          Console.WriteLine(a[i]);
+        }
+      }
     }
     Console.ReadKey();
   }
